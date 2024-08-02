@@ -1,2 +1,2 @@
-# algorithmic-tascs-solutions
-own solutions of algorithmic tascs
+# algorithmic-tasks-solutions
+own solutions of algorithmic tasks
