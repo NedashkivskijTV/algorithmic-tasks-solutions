@@ -1,0 +1,8 @@
+https://www.hackerrank.com/challenges/draw-the-triangle-2/problem?isFullScreen=true
+
+WITH RECURSIVE pattern (r) AS (
+    SELECT 1  
+    UNION ALL
+    SELECT r + 1 FROM pattern WHERE r < 20
+)
+SELECT REPEAT('* ', r) AS pattern FROM pattern;

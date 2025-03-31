@@ -1,0 +1,24 @@
+https://www.hackerrank.com/challenges/draw-the-triangle-1/problem?isFullScreen=true
+
+
+запит з рекурсією (коректно працює в MySQL 8.0+)
+WITH RECURSIVE pattern (r) AS (
+    SELECT 20  
+    UNION ALL
+    SELECT r - 1 FROM pattern WHERE r > 1
+)
+SELECT REPEAT('* ', r) AS pattern FROM pattern;
+
+
+
+
+
+варіант запиту без рекурсії
+SET @r = 21;
+
+SELECT REPEAT('* ', @r := @r - 1) AS pattern
+FROM (SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL 
+      SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL 
+      SELECT 9 UNION ALL SELECT 10 UNION ALL SELECT 11 UNION ALL SELECT 12 UNION ALL 
+      SELECT 13 UNION ALL SELECT 14 UNION ALL SELECT 15 UNION ALL SELECT 16 UNION ALL 
+      SELECT 17 UNION ALL SELECT 18 UNION ALL SELECT 19 UNION ALL SELECT 20) AS numbers;
