@@ -1,0 +1,18 @@
+https://www.hackerrank.com/challenges/print-prime-numbers/problem?isFullScreen=true
+
+WITH RECURSIVE numbers AS (
+    SELECT 2 AS n
+    UNION ALL
+    SELECT n + 1 FROM numbers WHERE n < 1000
+)
+SELECT GROUP_CONCAT(n SEPARATOR '&') AS primes
+FROM (
+    SELECT n
+    FROM numbers AS candidates
+    WHERE NOT EXISTS (
+        SELECT 1 
+        FROM numbers AS divs 
+        WHERE divs.n <= SQRT(candidates.n) AND divs.n > 1 
+        AND candidates.n MOD divs.n = 0
+    )
+) AS prime_numbers;

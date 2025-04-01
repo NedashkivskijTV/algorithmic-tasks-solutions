@@ -1,0 +1,13 @@
+https://chatgpt.com/c/80d1a428-540f-47c5-bbec-43bee5a781d6
+
+SELECT h.hacker_id, h.name, SUM(max_scores.max_score) AS total_score
+FROM hackers h
+JOIN (
+    SELECT hacker_id, challenge_id, MAX(score) max_score
+    FROM submissions
+    GROUP BY hacker_id, challenge_id
+) AS max_scores 
+ON h.hacker_id = max_scores.hacker_id
+GROUP BY h.hacker_id, h.name
+HAVING total_score > 0
+ORDER BY total_score DESC, h.hacker_id;
