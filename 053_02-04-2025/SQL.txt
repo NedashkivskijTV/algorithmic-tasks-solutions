@@ -1,0 +1,6 @@
+https://leetcode.com/problems/duplicate-emails/submissions/1594474050/
+
+SELECT email
+FROM person
+GROUP BY email
+HAVING COUNT(email) > 1;
