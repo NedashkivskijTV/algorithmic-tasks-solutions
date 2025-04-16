@@ -7,7 +7,5 @@ public class Main {
         System.out.println(Kata.greet("Daniel", "Daniel")); // Hello boss
 
         System.out.println(Kata.greet("Greg", "Daniel")); // Hello guest
-
     }
-
 }
