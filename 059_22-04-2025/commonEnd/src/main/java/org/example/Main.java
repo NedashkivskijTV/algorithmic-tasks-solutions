@@ -8,5 +8,4 @@ public class Main {
         System.out.println(new CommonEnd().commonEnd(new int[] {1,2,3}, new int[] {7, 3, 2})); // false
         System.out.println(new CommonEnd().commonEnd(new int[] {1,2,3}, new int[] {1, 3})); // true
     }
-
 }
