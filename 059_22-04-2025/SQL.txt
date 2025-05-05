@@ -1,0 +1,10 @@
+// https://www.codewars.com/kata/5943a58f95d5f72cb900006a/train/sql
+
+SELECT LEFT(project, commits) AS project, RIGHT(address, contributors) AS address
+FROM repositories
+
+
+
+SELECT SUBSTRING(project, 0, commits + 1) AS project,
+SUBSTRING(address, LENGTH(address) - contributors + 1) AS address
+FROM repositories
