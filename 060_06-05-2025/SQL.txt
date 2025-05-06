@@ -1,0 +1,29 @@
+https://leetcode.com/problems/customers-who-never-order/?sorting=W3sic29ydE9yZGVyIjoiQVNDRU5ESU5HIiwib3JkZXJCeSI6IkRJRkZJQ1VMVFkifV0%3D
+
+
+SELECT c.name Customers
+FROM customers c
+LEFT JOIN orders o
+ON c.id = o.customerId
+WHERE o.customerId IS NULL;
+
+
+
+SELECT name AS Customers
+FROM customers c
+WHERE c.id NOT IN (
+    SELECT customerId 
+    FROM orders
+);
+
+
+
+SELECT customersOrders.name AS Customers 
+FROM (
+    SELECT c.id, c.name, COUNT(o.id) AS number_of_orders 
+    FROM customers c
+    LEFT JOIN orders o
+    ON c.id = o.customerId
+    GROUP BY c.id, c.name
+) AS customersOrders
+WHERE customersOrders.number_of_orders = 0;
