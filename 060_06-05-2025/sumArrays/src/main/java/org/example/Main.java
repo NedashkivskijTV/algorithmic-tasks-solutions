@@ -9,4 +9,5 @@ public class Main {
         System.out.println(SumArray.sum(new double[] {})); // 0.0
         System.out.println(SumArray.sum(new double[] {-2.398})); // -2.398
     }
+
 }

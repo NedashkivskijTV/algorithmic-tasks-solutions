@@ -1,0 +1,12 @@
+https://leetcode.com/problems/delete-duplicate-emails/?sorting=W3sic29ydE9yZGVyIjoiQVNDRU5ESU5HIiwib3JkZXJCeSI6IkRJRkZJQ1VMVFkifV0%3D
+
+
+DELETE FROM Person
+WHERE id NOT IN(
+    SELECT *
+    FROM (
+        SELECT MIN(id)
+        FROM Person
+        GROUP BY email
+    ) AS min_id
+);
